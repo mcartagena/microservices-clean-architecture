@@ -5,17 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>order-domain</artifactId>
+        <artifactId>food-ordering-system</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>order-domain-core</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.food.ordering.system</groupId>
-            <artifactId>common-domain</artifactId>
-        </dependency>
-    </dependencies>
+    <artifactId>common</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>common-domain</module>
+    </modules>
 
 </project>
