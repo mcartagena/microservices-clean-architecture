@@ -57,11 +57,6 @@
                 <artifactId>common-domain</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>1.18.34</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies></dependencies>
