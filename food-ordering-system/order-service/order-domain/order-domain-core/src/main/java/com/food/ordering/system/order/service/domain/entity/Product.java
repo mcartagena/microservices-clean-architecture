@@ -8,6 +8,10 @@ public class Product extends BaseEntity<ProductId> {
     private String name;
     private Money price;
 
+    public Product(ProductId productId) {
+        super.setId(productId);
+    }
+
     public String getName() {
         return name;
     }
