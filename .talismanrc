@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: food-ordering-system/infrastructure/docker-compose/.env
+  checksum: 0291f87c21e7f3bd320aa018bed5773d844336807a8e88f8746151ecb4a82cdf
+version: "1.0"
