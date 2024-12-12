@@ -1,4 +1,10 @@
 fileignoreconfig:
 - filename: food-ordering-system/infrastructure/docker-compose/.env
   checksum: 0291f87c21e7f3bd320aa018bed5773d844336807a8e88f8746151ecb4a82cdf
+- filename: food-ordering-system/infrastructure/kafka/kafka-producer/src/main/java/com/food/ordering/system/kafka/producer/KafkaProducerConfig.java
+  checksum: d8d91c34c205a4809ad2f64a71aac966dcbfa86d4074e49beabf0943ca3d5719
+- filename: food-ordering-system/infrastructure/kafka/kafka-producer/src/main/java/com/food/ordering/system/kafka/producer/service/KafkaProducer.java
+  checksum: 01efc5b17146db47d21825465982fef539b5f01f9da142b2366a24ad36285ab0
+- filename: food-ordering-system/infrastructure/kafka/kafka-producer/src/main/java/com/food/ordering/system/kafka/producer/service/impl/KafkaProducerImpl.java
+  checksum: eb72064c8ec7e79b944c5c99f825f460eb14ec0cee8bb0b0a90dff16aaf2efb2
 version: "1.0"
