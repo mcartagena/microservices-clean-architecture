@@ -24,6 +24,7 @@ public class OrderEntity {
     private UUID trackingId;
     private BigDecimal price;
     @Enumerated(EnumType.STRING)
+    @Column(name="order_status", columnDefinition = "order_status")
     private OrderStatus orderStatus;
     private String failureMessages;
 

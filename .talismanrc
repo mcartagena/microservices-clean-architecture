@@ -1,4 +1,8 @@
 fileignoreconfig:
+- filename: food-ordering-system/customer-service/src/main/resources/init-data.sql
+  checksum: 1839edf4f6ec1871348dc9e8ba6e8b6dcbf237a07ca1ce20aee10bc832dab09c
+- filename: food-ordering-system/customer-service/src/main/resources/init-schema.sql
+  checksum: a8aa1db93a2fdcfdd48c3913f90702238ac60d787cb842fcc34a13d77a4a4316
 - filename: food-ordering-system/infrastructure/docker-compose/.env
   checksum: 0291f87c21e7f3bd320aa018bed5773d844336807a8e88f8746151ecb4a82cdf
 - filename: food-ordering-system/infrastructure/kafka/kafka-consumer/src/main/java/com/food/ordering/system/kafka/consumer/KafkaConsumer.java
@@ -13,6 +17,8 @@ fileignoreconfig:
   checksum: 54d523e6f2126abd8de01be74c3c1b2bb9cdba334d29beefd299310f65c520a9
 - filename: food-ordering-system/order-service/order-container/src/main/resources/application.yml
   checksum: b182f743ae8ab58bfc798b13af6d5c145c94fb7d8491ea6ee17cf3066e506616
+- filename: food-ordering-system/order-service/order-container/src/main/resources/init-schema.sql
+  checksum: 116f99551a2b2d8549318921c9331e49d3c0522e7fd678d32f1c6b570875d2ee
 - filename: food-ordering-system/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/listener/kafka/PaymentResponseKafkaListener.java
   checksum: 7b936f746bf0155a9c5d75273f7a1f00b5ca8180a45e3d8a436aec638bbe24ae
 - filename: food-ordering-system/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/listener/kafka/RestaurantApprovalResponseKafkaListener.java
