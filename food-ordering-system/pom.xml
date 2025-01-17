@@ -22,6 +22,12 @@
         <module>infrastructure</module>
         <module>infrastructure/kafka</module>
         <module>customer-service</module>
+        <module>payment-service</module>
+        <module>payment-service/payment-domain</module>
+        <module>payment-service/payment-dataaccess</module>
+        <module>payment-service/payment-messaging</module>
+        <module>payment-service/payment-container</module>
+        <module>payment-service/payment-domain/payment-domain-service</module>
     </modules>
 
     <properties>
