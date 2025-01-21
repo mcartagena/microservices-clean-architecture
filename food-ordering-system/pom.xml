@@ -27,7 +27,7 @@
         <module>payment-service/payment-dataaccess</module>
         <module>payment-service/payment-messaging</module>
         <module>payment-service/payment-container</module>
-        <module>payment-service/payment-domain/payment-domain-service</module>
+        <module>payment-service/payment-domain/payment-application-service</module>
     </modules>
 
     <properties>
@@ -63,6 +63,11 @@
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>order-messaging</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>payment-domain-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
