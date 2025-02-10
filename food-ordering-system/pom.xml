@@ -35,6 +35,7 @@
         <module>restaurant-service/restaurant-messaging</module>
         <module>restaurant-service/restaurant-domain/restaurant-domain-core</module>
         <module>restaurant-service/restaurant-domain/restaurant-application-service</module>
+        <module>common/common-dataaccess</module>
     </modules>
 
     <properties>
@@ -120,6 +121,11 @@
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
                 <artifactId>common-application</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.food.ordering.system</groupId>
+                <artifactId>common-dataaccess</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

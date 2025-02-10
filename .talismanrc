@@ -31,4 +31,6 @@ fileignoreconfig:
   checksum: c9dd61d665adaee7437f702702dc2e4089da17d7a46155b3be7ce8a6ce6028ff
 - filename: food-ordering-system/payment-service/payment-messaging/src/main/java/com/food/ordering/system/payment/service/messaging/listener/kafka/PaymentRequestKafkaListener.java
   checksum: ff4bf9aa04446473a52cf8c15dd4847f96982797fdb88aaa2e96b7e130b1fb0a
+- filename: food-ordering-system/restaurant-service/restaurant-messaging/src/main/java/com/food/ordering/system/restaurant/service/messaging/listener/kafka/RestaurantApprovalRequestKafkaListener.java
+  checksum: 9f4a00b19ac46a1440979e330f547477e410d73b01621581cc363e279e0a2ae4
 version: "1.0"
