@@ -17,25 +17,12 @@
 
     <packaging>pom</packaging>
     <modules>
-        <module>order-service</module>
         <module>common</module>
         <module>infrastructure</module>
-        <module>infrastructure/kafka</module>
+        <module>order-service</module>
         <module>customer-service</module>
         <module>payment-service</module>
-        <module>payment-service/payment-domain</module>
-        <module>payment-service/payment-dataaccess</module>
-        <module>payment-service/payment-messaging</module>
-        <module>payment-service/payment-container</module>
-        <module>payment-service/payment-domain/payment-application-service</module>
         <module>restaurant-service</module>
-        <module>restaurant-service/restaurant-domain</module>
-        <module>restaurant-service/restaurant-container</module>
-        <module>restaurant-service/restaurant-dataaccess</module>
-        <module>restaurant-service/restaurant-messaging</module>
-        <module>restaurant-service/restaurant-domain/restaurant-domain-core</module>
-        <module>restaurant-service/restaurant-domain/restaurant-application-service</module>
-        <module>common/common-dataaccess</module>
     </modules>
 
     <properties>
@@ -120,12 +107,12 @@
             </dependency>
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
-                <artifactId>common-application</artifactId>
+                <artifactId>common-dataaccess</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.food.ordering.system</groupId>
-                <artifactId>common-dataaccess</artifactId>
+                <artifactId>common-application</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
