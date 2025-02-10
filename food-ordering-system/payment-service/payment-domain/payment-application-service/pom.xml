@@ -5,9 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.food.ordering.system</groupId>
-        <artifactId>food-ordering-system</artifactId>
+        <artifactId>payment-domain</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../../../pom.xml</relativePath>
     </parent>
 
     <artifactId>payment-application-service</artifactId>
