@@ -84,7 +84,7 @@ public class OrderMessagingDataMapper {
                         .valueOf(order.getOrderStatus().name()))
                 .setProducts(order.getItems().stream().map(orderItem ->
                         com.food.ordering.system.kafka.order.avro.model.Product.newBuilder()
-                                .setId(orderItem.getProduct().getId().getValue().toString())
+                                .setId(orderItem.getProduct().getId().getValue())
                                 .setQuantity(orderItem.getQuantity())
                                 .build()).collect(Collectors.toList()))
                 .setPrice(order.getPrice().getAmount())
