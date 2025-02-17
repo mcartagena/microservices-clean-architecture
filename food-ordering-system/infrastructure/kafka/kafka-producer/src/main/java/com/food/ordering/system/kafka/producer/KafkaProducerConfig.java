@@ -1,5 +1,6 @@
 package com.food.ordering.system.kafka.producer;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.food.ordering.system.kafka.config.data.KafkaConfigData;
 import com.food.ordering.system.kafka.config.data.KafkaProducerConfigData;
 import org.apache.avro.specific.SpecificRecordBase;
@@ -50,5 +51,10 @@ public class KafkaProducerConfig<K extends Serializable, V extends SpecificRecor
     @Bean
     public KafkaTemplate<K, V> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
+    }
+
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
     }
 }

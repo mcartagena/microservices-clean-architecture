@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.RecordMetadata;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
 
@@ -16,6 +17,7 @@ public class KafkaMessageHelper {
 
     private final ObjectMapper objectMapper;
 
+    @Autowired
     public KafkaMessageHelper(ObjectMapper objectMapper) {
         this.objectMapper = objectMapper;
     }
