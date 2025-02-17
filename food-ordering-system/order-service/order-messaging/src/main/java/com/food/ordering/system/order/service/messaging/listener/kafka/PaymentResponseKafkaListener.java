@@ -23,13 +23,15 @@ public class PaymentResponseKafkaListener implements KafkaConsumer<PaymentRespon
     private final PaymentResponseMessageListener paymentResponseMessageListener;
     private final OrderMessagingDataMapper orderMessagingDataMapper;
 
-    public PaymentResponseKafkaListener(PaymentResponseMessageListener paymentResponseMessageListener, OrderMessagingDataMapper orderMessagingDataMapper) {
+    public PaymentResponseKafkaListener(PaymentResponseMessageListener paymentResponseMessageListener,
+                                        OrderMessagingDataMapper orderMessagingDataMapper) {
         this.paymentResponseMessageListener = paymentResponseMessageListener;
         this.orderMessagingDataMapper = orderMessagingDataMapper;
     }
 
     @Override
-    @KafkaListener(id = "${kafka-consumer-config.payment-consumer-group-id}", topics = "${order-service.payment-response-topic-name}")
+    @KafkaListener(id = "${kafka-consumer-config.payment-consumer-group-id}",
+            topics = "${order-service.payment-response-topic-name}")
     public void receive(@Payload List<PaymentResponseAvroModel> messages,
                         @Header(KafkaHeaders.RECEIVED_KEY) List<String> keys,
                         @Header(KafkaHeaders.RECEIVED_PARTITION) List<Integer> partitions,
