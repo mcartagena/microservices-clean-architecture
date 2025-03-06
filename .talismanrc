@@ -20,7 +20,7 @@ fileignoreconfig:
 - filename: food-ordering-system/order-service/order-container/src/main/resources/application.yml
   checksum: 58537646107296917b03b781b929bbbf7c12be2a8e68fb3930c1d5329057e633
 - filename: food-ordering-system/order-service/order-container/src/main/resources/init-schema.sql
-  checksum: 116f99551a2b2d8549318921c9331e49d3c0522e7fd678d32f1c6b570875d2ee
+  checksum: 9d3838b41f4db79721746cdd3ac9dbe6f3a1c5c26cd85086931c25d618f2fd3d
 - filename: food-ordering-system/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/listener/kafka/PaymentResponseKafkaListener.java
   checksum: 7b936f746bf0155a9c5d75273f7a1f00b5ca8180a45e3d8a436aec638bbe24ae
 - filename: food-ordering-system/order-service/order-messaging/src/main/java/com/food/ordering/system/order/service/messaging/listener/kafka/RestaurantApprovalResponseKafkaListener.java
