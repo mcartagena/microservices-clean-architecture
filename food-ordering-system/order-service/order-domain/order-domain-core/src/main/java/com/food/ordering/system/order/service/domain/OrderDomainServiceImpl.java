@@ -21,27 +21,22 @@ public class OrderDomainServiceImpl implements OrderDomainService {
 
     @Override
     public OrderCreatedEvent validateAndInitiateOrder(Order order,
-                                                      Restaurant restaurant,
-                                                      DomainEventPublisher<OrderCreatedEvent>
-                                                                  orderCreatedEventDomainEventPublisher) {
+                                                      Restaurant restaurant) {
         validateRestaurant(restaurant);
         setOrderProductInformation(order, restaurant);
         order.validateOrder();
         order.initializeOrder();
         log.info("Order with id: {} is initiated", order.getId().getValue());
         return new OrderCreatedEvent(order,
-                ZonedDateTime.now(ZoneId.of(UTC)),
-                orderCreatedEventDomainEventPublisher);
+                ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
 
     @Override
-    public OrderPaidEvent payOrder(Order order,
-                                   DomainEventPublisher<OrderPaidEvent> orderPaidEventDomainEventPublisher) {
+    public OrderPaidEvent payOrder(Order order) {
         order.pay();
         log.info("Order with id: {} is paid", order.getId().getValue());
-        return new OrderPaidEvent(order, ZonedDateTime.now(ZoneId.of(UTC)),
-                orderPaidEventDomainEventPublisher);
+        return new OrderPaidEvent(order, ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
     @Override

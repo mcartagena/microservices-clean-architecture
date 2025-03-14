@@ -3,6 +3,7 @@ package com.food.ordering.system.order.service.domain.outbox.scheduler.payment;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.food.ordering.system.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
+import com.food.ordering.system.domain.valueobject.OrderStatus;
 import com.food.ordering.system.outbox.OutboxStatus;
 import com.food.ordering.system.saga.SagaStatus;
 import lombok.extern.slf4j.Slf4j;
@@ -53,6 +54,24 @@ public class PaymentOutboxHelper {
                     orderPaymentOutboxMessage.getId());
         }
         log.info("OrderPaymentOutboxMessage saved with outbox id: {}", orderPaymentOutboxMessage.getId());
+    }
+
+    @Transactional
+    public void savePaymentOutboxMessage(OrderPaymentEventPayload paymentEventPayload,
+                                         OrderStatus orderStatus,
+                                         SagaStatus sagaStatus,
+                                         OutboxStatus outboxStatus,
+                                         UUID sagaId) {
+        save(OrderPaymentOutboxMessage.builder()
+                .id(UUID.randomUUID())
+                .sagaId(sagaId)
+                .createdAt(paymentEventPayload.getCreatedAt())
+                .type(ORDER_SAGA_NAME)
+                .payload(createPayload(paymentEventPayload))
+                .orderStatus(orderStatus)
+                .sagaStatus(sagaStatus)
+                .outboxStatus(outboxStatus)
+                .build());
     }
 
     @Transactional
