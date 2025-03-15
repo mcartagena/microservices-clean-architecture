@@ -47,14 +47,11 @@ public class OrderDomainServiceImpl implements OrderDomainService {
 
     @Override
     public OrderCancelledEvent cancelOrderPayment(Order order,
-                                                  List<String> failureMessages,
-                                                  DomainEventPublisher<OrderCancelledEvent>
-                                                              orderCancelledEventDomainEventPublisher) {
+                                                  List<String> failureMessages) {
         order.initCancel(failureMessages);
         log.info("Order payment is cancelling for order id: {}", order.getId().getValue());
         return new OrderCancelledEvent(order,
-                ZonedDateTime.now(ZoneId.of(UTC)),
-                orderCancelledEventDomainEventPublisher);
+                ZonedDateTime.now(ZoneId.of(UTC)));
     }
 
     @Override
