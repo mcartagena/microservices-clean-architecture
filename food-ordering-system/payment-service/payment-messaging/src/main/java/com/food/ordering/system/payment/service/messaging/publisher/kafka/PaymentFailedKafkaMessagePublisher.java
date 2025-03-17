@@ -47,6 +47,8 @@ public class PaymentFailedKafkaMessagePublisher implements PaymentFailedMessageP
                     kafkaMessageHelper.getKafkaCallback(
                             paymentServiceConfigData.getPaymentResponseTopicName(),
                             paymentResponseAvroModel,
+                            null,
+                            null,
                             orderId,
                             "paymentResponseAvroModel"
                     ));

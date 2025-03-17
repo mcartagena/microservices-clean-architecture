@@ -45,6 +45,8 @@ public class PaymentCompletedKafkaMessagePublisher implements PaymentCompleteMes
                     kafkaMessageHelper.getKafkaCallback(
                             paymentServiceConfigData.getPaymentResponseTopicName(),
                             paymentResponseAvroModel,
+                            null,
+                            null,
                             orderId,
                             "paymentResponseAvroModel"
                     ));
