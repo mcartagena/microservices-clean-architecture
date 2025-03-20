@@ -2,6 +2,7 @@ package com.food.ordering.system.order.service.domain.outbox.scheduler.approval;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.food.ordering.system.domain.valueobject.OrderStatus;
 import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalOutboxMessage;
 import com.food.ordering.system.order.service.domain.exception.OrderDomainException;
@@ -85,6 +86,7 @@ public class ApprovalOutboxHelper {
 
     private String createPayload(OrderApprovalEventPayload orderApprovalEventPayload) {
         try {
+            objectMapper.registerModule(new JavaTimeModule());
             return objectMapper.writeValueAsString(orderApprovalEventPayload);
         } catch (JsonProcessingException e) {
             log.error("Could not create OrderApprovalEventPayload for order id: {}",
