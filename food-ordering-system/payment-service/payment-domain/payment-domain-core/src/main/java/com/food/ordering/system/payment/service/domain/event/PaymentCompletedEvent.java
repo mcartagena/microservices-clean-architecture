@@ -8,13 +8,9 @@ import java.util.Collections;
 
 public class PaymentCompletedEvent extends PaymentEvent {
 
-    private final DomainEventPublisher<PaymentCompletedEvent> paymentCompletedEventDomainEventPublisher;
-
     public PaymentCompletedEvent(Payment payment,
-                                 ZonedDateTime createdAt,
-                                 DomainEventPublisher<PaymentCompletedEvent> paymentCompletedEventDomainEventPublisher) {
+                                 ZonedDateTime createdAt) {
         super(payment, createdAt, Collections.emptyList());
-        this.paymentCompletedEventDomainEventPublisher = paymentCompletedEventDomainEventPublisher;
     }
 
 }
