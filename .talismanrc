@@ -44,7 +44,7 @@ fileignoreconfig:
 - filename: food-ordering-system/restaurant-service/restaurant-container/src/main/resources/init-data.sql
   checksum: 641a58ed0798285dfe47782ff0b44b8c29700246f7acc509c9af4e97309bdbd0
 - filename: food-ordering-system/restaurant-service/restaurant-container/src/main/resources/init-schema.sql
-  checksum: 4e085cea3ba5bad4140f88e4aba5819533a42c33aadb331206fe170f0846bfa8
+  checksum: 7a3f02357fc7948e79033a4660235ae5420e2c00709e6d5c118b1bab619bc3fb
 - filename: food-ordering-system/restaurant-service/restaurant-messaging/src/main/java/com/food/ordering/system/restaurant/service/messaging/listener/kafka/RestaurantApprovalRequestKafkaListener.java
   checksum: 9f4a00b19ac46a1440979e330f547477e410d73b01621581cc363e279e0a2ae4
 version: "1.0"
