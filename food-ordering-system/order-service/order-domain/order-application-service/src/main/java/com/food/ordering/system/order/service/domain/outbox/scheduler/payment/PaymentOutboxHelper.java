@@ -2,6 +2,7 @@ package com.food.ordering.system.order.service.domain.outbox.scheduler.payment;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.food.ordering.system.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
 import com.food.ordering.system.domain.valueobject.OrderStatus;
 import com.food.ordering.system.outbox.OutboxStatus;
@@ -82,6 +83,7 @@ public class PaymentOutboxHelper {
 
     private String createPayload(OrderPaymentEventPayload paymentEventPayload) {
         try {
+            objectMapper.registerModule(new JavaTimeModule());
             return objectMapper.writeValueAsString(paymentEventPayload);
         } catch (JsonProcessingException e) {
             log.error("Could not create OrderPaymentEventPayload object for order id: {}",
