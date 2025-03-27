@@ -1,4 +1,6 @@
 fileignoreconfig:
+- filename: food-ordering-system/customer-service/customer-container/src/main/resources/application.yml
+  checksum: 1e798502bdb9243747202b3eaf7fc2895f988fe140e50b57bc0a6f326eb700bb
 - filename: food-ordering-system/customer-service/src/main/resources/application.yml
   checksum: d18bdae5106d4d6e7c91bc168e9e6afb31ecc1922411a9674d57cba66645fe46
 - filename: food-ordering-system/customer-service/src/main/resources/init-data.sql
