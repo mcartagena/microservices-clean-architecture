@@ -1,23 +1,42 @@
 package com.food.ordering.system.customer.service.domain.create;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-
-import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
+import lombok.NonNull;
 
 import java.util.UUID;
 
 @Getter
 @Builder
-@AllArgsConstructor
 public class CreateCustomerCommand {
-    @NotNull
+    @NonNull
+    @JsonProperty("customerId")
     private final UUID customerId;
-    @NotNull
+
+    @NonNull
+    @JsonProperty("username")
     private final String username;
-    @NotNull
+
+    @NonNull
+    @JsonProperty("firstName")
     private final String firstName;
-    @NotNull
+
+    @NonNull
+    @JsonProperty("lastName")
     private final String lastName;
+
+    @JsonCreator
+    public CreateCustomerCommand(
+            @JsonProperty("customerId") UUID customerId,
+            @JsonProperty("username") String username,
+            @JsonProperty("firstName") String firstName,
+            @JsonProperty("lastName") String lastName
+    ) {
+        this.customerId = customerId;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

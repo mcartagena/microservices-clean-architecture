@@ -22,7 +22,7 @@ fileignoreconfig:
 - filename: food-ordering-system/order-service/order-container/src/main/resources/application.yml
   checksum: 58537646107296917b03b781b929bbbf7c12be2a8e68fb3930c1d5329057e633
 - filename: food-ordering-system/order-service/order-container/src/main/resources/init-schema.sql
-  checksum: 08a9ef3e39c550cce3b34c0bd2a897280559e59d58cc419f0ba3980359b38cd3
+  checksum: 6a410a04e250a138efd42f1867a54ebc88d72194284858a02415b2b61c4c32c3
 - filename: food-ordering-system/order-service/order-container/src/test/resources/sql/OrderPaymentSagaTestCleanUp.sql
   checksum: 3226e0a23228d80d349932c90b79fdbda29da21da4d2d6a0dc6cf67b9a165899
 - filename: food-ordering-system/order-service/order-container/src/test/resources/sql/OrderPaymentSagaTestSetUp.sql
