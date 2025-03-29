@@ -5,6 +5,7 @@ import com.food.ordering.system.order.service.dataaccess.customer.repository.Cus
 import com.food.ordering.system.order.service.domain.entity.Customer;
 import com.food.ordering.system.order.service.domain.ports.output.repository.CustomerRepository;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -26,4 +27,10 @@ public class CustomerRepositoryImpl implements CustomerRepository {
                 .map(customerDataAccessMapper::customerEntityToCustomer);
     }
 
+    @Transactional
+    @Override
+    public Customer save(Customer customer) {
+        return customerDataAccessMapper.customerEntityToCustomer(
+                customerJpaRepository.save(customerDataAccessMapper.customerToCustomerEntity(customer)));
+    }
 }
