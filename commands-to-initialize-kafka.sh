@@ -83,6 +83,10 @@ helm uninstall local-confluent-kafka
 
 kubectl delete -f kafka-client.yml
 
+kubectl get svc
+
+kubectl port-forward service/postgres-service 5432:5432
+
 --------------------------------------------------------
 
 helm install local-confluent-kafka ./helm/cp-helm-charts --version 0.6.0
@@ -90,6 +94,11 @@ helm install local-confluent-kafka ./helm/cp-helm-charts --version 0.6.0
 kubectl apply -f application-deployment-local.yml
 
 kubectl delete -f application-deployment-local.yml
+
+----------------------------------------------------------
+
+kubectl apply -f postgres-deployment.yml
+
 
 
 

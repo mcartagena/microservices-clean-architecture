@@ -44,7 +44,7 @@ fileignoreconfig:
 - filename: food-ordering-system/payment-service/payment-messaging/src/main/java/com/food/ordering/system/payment/service/messaging/listener/kafka/PaymentRequestKafkaListener.java
   checksum: ff4bf9aa04446473a52cf8c15dd4847f96982797fdb88aaa2e96b7e130b1fb0a
 - filename: food-ordering-system/restaurant-service/restaurant-container/src/main/resources/application.yml
-  checksum: 521057bc53491ffca6ebf81addc7f1dc5c6be3030008b617b50b70e0e17a20dd
+  checksum: 4f2291c6c64c569796cf4562bba0194ea5bd8fa8cb38fbcb9e357f8cc14156aa
 - filename: food-ordering-system/restaurant-service/restaurant-container/src/main/resources/init-data.sql
   checksum: 641a58ed0798285dfe47782ff0b44b8c29700246f7acc509c9af4e97309bdbd0
 - filename: food-ordering-system/restaurant-service/restaurant-container/src/main/resources/init-schema.sql
