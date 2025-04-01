@@ -83,4 +83,13 @@ helm uninstall local-confluent-kafka
 
 kubectl delete -f kafka-client.yml
 
+--------------------------------------------------------
+
+helm install local-confluent-kafka ./helm/cp-helm-charts --version 0.6.0
+
+kubectl apply -f application-deployment-local.yml
+
+kubectl delete -f application-deployment-local.yml
+
+
 
