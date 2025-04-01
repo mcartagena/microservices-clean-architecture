@@ -36,3 +36,4 @@
 ### Data ###
 **/volumes
 
+/food-ordering-system-infra/helm/cp-helm-charts
