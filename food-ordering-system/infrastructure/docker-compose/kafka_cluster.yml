@@ -102,3 +102,14 @@ services:
       ZK_HOSTS: "zookeeper:2181"
     networks:
       - ${GLOBAL_NETWORK:-kafka}
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - "9001:8080"
+    environment:
+      ZK_HOSTS: "zookeeper:2181"
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka-broker-1:9092,kafka-broker-2:9092
+    networks:
+      - ${GLOBAL_NETWORK:-kafka}
