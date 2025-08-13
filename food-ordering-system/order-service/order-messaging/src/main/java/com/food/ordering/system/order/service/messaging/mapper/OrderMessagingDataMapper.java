@@ -9,28 +9,32 @@ import com.food.ordering.system.order.service.domain.event.OrderCancelledEvent;
 import com.food.ordering.system.order.service.domain.event.OrderCreatedEvent;
 import com.food.ordering.system.order.service.domain.event.OrderPaidEvent;
 import com.food.ordering.system.order.service.domain.outbox.model.approval.OrderApprovalEventPayload;
-import com.food.ordering.system.order.service.domain.outbox.model.payment.OrderPaymentEventPayload;
+import com.food.ordering.system.order.service.domain.outbox.model.payment.PaymentOrderEventPayload;
+import debezium.payment.order_outbox.Value;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
 public class OrderMessagingDataMapper {
 
-    public PaymentResponse paymentResponseAvroModelToPaymentResponse(PaymentResponseAvroModel
+    public PaymentResponse paymentResponseAvroModelToPaymentResponse(PaymentOrderEventPayload
+                                                                             paymentOrderEventPayload,
+                                                                     Value
                                                                              paymentResponseAvroModel) {
         return PaymentResponse.builder()
-                .id(paymentResponseAvroModel.getId().toString())
-                .sagaId(paymentResponseAvroModel.getSagaId().toString())
-                .paymentId(paymentResponseAvroModel.getPaymentId().toString())
-                .customerId(paymentResponseAvroModel.getCustomerId().toString())
-                .orderId(paymentResponseAvroModel.getOrderId().toString())
-                .price(paymentResponseAvroModel.getPrice())
-                .createdAt(paymentResponseAvroModel.getCreatedAt())
+                .id(paymentResponseAvroModel.getId())
+                .sagaId(paymentResponseAvroModel.getSagaId())
+                .paymentId(paymentOrderEventPayload.getPaymentId())
+                .customerId(paymentOrderEventPayload.getCustomerId())
+                .orderId(paymentOrderEventPayload.getOrderId())
+                .price(paymentOrderEventPayload.getPrice())
+                .createdAt(Instant.parse(paymentResponseAvroModel.getCreatedAt()))
                 .paymentStatus(com.food.ordering.system.domain.valueobject.PaymentStatus.valueOf(
-                        paymentResponseAvroModel.getPaymentStatus().name()))
-                .failureMessages(paymentResponseAvroModel.getFailureMessages())
+                        paymentOrderEventPayload.getPaymentStatus()))
+                .failureMessages(paymentOrderEventPayload.getFailureMessages())
                 .build();
     }
 
@@ -46,20 +50,6 @@ public class OrderMessagingDataMapper {
                 .orderApprovalStatus(com.food.ordering.system.domain.valueobject.OrderApprovalStatus.valueOf(
                         restaurantApprovalResponseAvroModel.getOrderApprovalStatus().name()))
                 .failureMessages(restaurantApprovalResponseAvroModel.getFailureMessages())
-                .build();
-    }
-
-    public PaymentRequestAvroModel orderPaymentEventToPaymentRequestAvroModel(String sagaId,
-                                                                              OrderPaymentEventPayload
-            orderPaymentEventPayload) {
-        return PaymentRequestAvroModel.newBuilder()
-                .setId(UUID.randomUUID())
-                .setSagaId(UUID.fromString(sagaId))
-                .setCustomerId(UUID.fromString(orderPaymentEventPayload.getCustomerId()))
-                .setOrderId(UUID.fromString(orderPaymentEventPayload.getOrderId()))
-                .setPrice(orderPaymentEventPayload.getPrice())
-                .setCreatedAt(orderPaymentEventPayload.getCreatedAt().toInstant())
-                .setPaymentOrderStatus(PaymentOrderStatus.valueOf(orderPaymentEventPayload.getPaymentOrderStatus()))
                 .build();
     }
 
