@@ -6,7 +6,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.food.ordering.system.domain.valueobject.OrderApprovalStatus;
 import com.food.ordering.system.outbox.OutboxStatus;
 import com.food.ordering.system.restaurant.service.domain.exception.RestaurantDomainException;
-import com.food.ordering.system.restaurant.service.domain.outbox.model.OrderEventPayload;
+import com.food.ordering.system.domain.event.payload.RestaurantOrderEventPayload;
 import com.food.ordering.system.restaurant.service.domain.outbox.model.OrderOutboxMessage;
 import com.food.ordering.system.restaurant.service.domain.ports.output.repository.OrderOutboxRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -53,17 +53,17 @@ public class OrderOutboxHelper {
     }
 
     @Transactional
-    public void saveOrderOutboxMessage(OrderEventPayload orderEventPayload,
+    public void saveOrderOutboxMessage(RestaurantOrderEventPayload restaurantOrderEventPayload,
                                        OrderApprovalStatus approvalStatus,
                                        OutboxStatus outboxStatus,
                                        UUID sagaId) {
         save(OrderOutboxMessage.builder()
                 .id(UUID.randomUUID())
                 .sagaId(sagaId)
-                .createdAt(orderEventPayload.getCreatedAt())
+                .createdAt(restaurantOrderEventPayload.getCreatedAt())
                 .processedAt(ZonedDateTime.now(ZoneId.of(UTC)))
                 .type(ORDER_SAGA_NAME)
-                .payload(createPayload(orderEventPayload))
+                .payload(createPayload(restaurantOrderEventPayload))
                 .approvalStatus(approvalStatus)
                 .outboxStatus(outboxStatus)
                 .build());
@@ -84,10 +84,10 @@ public class OrderOutboxHelper {
         log.info("OrderOutboxMessage saved with id: {}", orderPaymentOutboxMessage.getId());
     }
 
-    private String createPayload(OrderEventPayload orderEventPayload) {
+    private String createPayload(RestaurantOrderEventPayload restaurantOrderEventPayload) {
         try {
             objectMapper.registerModule(new JavaTimeModule());
-            return objectMapper.writeValueAsString(orderEventPayload);
+            return objectMapper.writeValueAsString(restaurantOrderEventPayload);
         } catch (JsonProcessingException e) {
             log.error("Could not create OrderEventPayload json!", e);
             throw new RestaurantDomainException("Could not create OrderEventPayload json!", e);

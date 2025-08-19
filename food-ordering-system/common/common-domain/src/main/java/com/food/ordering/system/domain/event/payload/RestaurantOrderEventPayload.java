@@ -1,4 +1,4 @@
-package com.food.ordering.system.restaurant.service.domain.outbox.model;
+package com.food.ordering.system.domain.event.payload;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderEventPayload {
+public class RestaurantOrderEventPayload {
 
     @JsonProperty
     private String orderId;
